@@ -1,0 +1,169 @@
+@import './tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  background-color: var(--gt-bg-page);
+  color: var(--gt-text-primary);
+}
+
+body {
+  font-family: var(--gt-font-body);
+  background-color: var(--gt-bg-page);
+  color: var(--gt-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--gt-font-display);
+  font-weight: 700;
+  color: var(--gt-text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  transition: all var(--gt-transition-fast);
+}
+
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--gt-primary);
+  outline-offset: 2px;
+}
+
+input, select, textarea {
+  font-family: var(--gt-font-body);
+  font-size: 0.9375rem;
+  color: var(--gt-text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* App Wrapper */
+.gt-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gt-bg-page);
+}
+
+.gt-main-content {
+  flex: 1;
+  padding-bottom: calc(var(--gt-bottom-nav-height) + 24px);
+}
+
+@media (min-width: 900px) {
+  .gt-main-content {
+    padding-bottom: 48px;
+  }
+}
+
+/* Layout Containers */
+.gt-container {
+  width: 100%;
+  max-width: var(--gt-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .gt-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gt-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gt-border-default);
+  border-radius: var(--gt-radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gt-text-muted);
+}
+
+/* Hide scrollbar for clean horizontal scrolls */
+.gt-hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.gt-hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 107, 53, 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Skeleton Loading */
+.gt-skeleton {
+  background: linear-gradient(90deg, #ece7e0 25%, #f7f3ee 50%, #ece7e0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--gt-radius-sm);
+}

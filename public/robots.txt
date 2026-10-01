@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /vendor
+Disallow: /rider
+Disallow: /checkout
+Disallow: /order-tracking
+
+Sitemap: https://ghartak.in/sitemap.xml
